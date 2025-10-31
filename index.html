@@ -3,20 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的個人網站</title>
-
-  <!-- 載入 jQuery CDN -->
+  <title>我的 GitHub 個人網站</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
   <style>
     body {
       font-family: "Microsoft JhengHei", sans-serif;
       text-align: center;
       background-color: #f8f9fa;
       margin-top: 100px;
-    }
-    h1 {
-      color: #333;
     }
     button {
       background-color: #007bff;
@@ -26,6 +20,7 @@
       font-size: 18px;
       border-radius: 6px;
       cursor: pointer;
+      margin-top: 10px;
     }
     button:hover {
       background-color: #0056b3;
@@ -39,14 +34,24 @@
 </head>
 <body>
 
-  <h1>作業展示</h1>
   <button id="clickMe">點我一下！</button>
   <p id="message"></p>
+  <button id="clickMe2" style="display:none;">再點我一下！</button>
+  <p id="thanks" style="margin-top:15px; font-size:18px; color:#666;"></p>
 
   <script>
     $(document).ready(function() {
+      // 第一個按鈕
       $("#clickMe").click(function() {
-        $("#message").hide().text("歡迎來到我的 GitHub 個人頁面 ~").fadeIn(800);
+        $("#message").hide().text("歡迎來到我的 GitHub 個人頁面").fadeIn(800, function() {
+          // 歡迎訊息出現後，再漸漸顯示第二個按鈕
+          $("#clickMe2").fadeIn(800);
+        });
+      });
+
+      // 第二個按鈕
+      $("#clickMe2").click(function() {
+        $("#thanks").hide().text("謝謝你看到這邊~").fadeIn(800);
       });
     });
   </script>
