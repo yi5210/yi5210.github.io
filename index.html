@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的 GitHub 個人網站</title>
+  <title>作業展示</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
     body {
@@ -26,37 +26,33 @@
     button:hover {
       background-color: #0056b3;
     }
-    #message, #thanks {
+    #message, #info {
       margin-top: 20px;
       font-size: 20px;
       color: #555;
     }
-    #clickMe2 {
-      display: none; /* 第二個按鈕一開始隱藏 */
+    #info {
+      display: none;
     }
   </style>
 </head>
 <body>
 
-  <h1>作業展示</h1>
+  <h1>My Github personal page</h1>
 
   <button id="clickMe">點我一下！</button>
   <p id="message"></p>
-
-  <button id="clickMe2">再點我一下！</button>
-  <p id="thanks"></p>
+  <div id="info">
+    <p>Name：yzuie</p>
+    <p>School：輔仁大學</p>
+  </div>
 
   <script>
     $(document).ready(function() {
-      // 第一個按鈕點擊
-      $("#clickMe").click(function() {
+      $("#clickMe").click(function()
         $("#message").hide().text("歡迎來到我的 GitHub 個人頁面 ~").fadeIn(800, function() {
-          $("#clickMe2").fadeIn(800); // 歡迎訊息完成後再顯示第二個按鈕
+          $("#info").fadeIn(1000);
         });
-      });
-      // 第二個按鈕點擊
-      $("#clickMe2").click(function() {
-        $("#thanks").hide().text("謝謝你看到這邊~").fadeIn(800);
       });
     });
   </script>
