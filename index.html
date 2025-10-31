@@ -21,39 +21,44 @@
       border-radius: 6px;
       cursor: pointer;
       margin-top: 10px;
+      display: inline-block;
     }
     button:hover {
       background-color: #0056b3;
     }
-    #message {
+    #message, #thanks {
       margin-top: 20px;
       font-size: 20px;
       color: #555;
+    }
+    #clickMe2 {
+      display: none; /* 第二個按鈕一開始隱藏 */
     }
   </style>
 </head>
 <body>
 
+  <h1>作業展示</h1>
+
   <button id="clickMe">點我一下！</button>
   <p id="message"></p>
-  <button id="clickMe2" style="display:none;">再點我一下！</button>
-  <p id="thanks" style="margin-top:15px; font-size:18px; color:#666;"></p>
+
+  <button id="clickMe2">再點我一下！</button>
+  <p id="thanks"></p>
 
   <script>
-   $(document).ready(function() {
-  // 第一個按鈕
-  $("#clickMe").click(function() {
-    $("#message").hide().text("歡迎來到我的 GitHub 個人頁面 ~").fadeIn(800, function() {
-      // 歡迎訊息出現後，再漸漸顯示第二個按鈕
-      $("#clickMe2").fadeIn(800);
+    $(document).ready(function() {
+      // 第一個按鈕點擊
+      $("#clickMe").click(function() {
+        $("#message").hide().text("歡迎來到我的 GitHub 個人頁面 ~").fadeIn(800, function() {
+          $("#clickMe2").fadeIn(800); // 歡迎訊息完成後再顯示第二個按鈕
+        });
+      });
+      // 第二個按鈕點擊
+      $("#clickMe2").click(function() {
+        $("#thanks").hide().text("謝謝你看到這邊~").fadeIn(800);
+      });
     });
-  });
-
-  // 第二個按鈕
-  $("#clickMe2").click(function() {
-    $("#thanks").hide().text("謝謝你看到這邊~").fadeIn(800);
-  });
-});
   </script>
 
 </body>
